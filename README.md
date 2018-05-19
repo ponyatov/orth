@@ -1,11 +1,11 @@
-# **ORTH**odoxal programming language
+# **ORTH**odoxal (meta)programming language
 ## how to design metaprogramming system from scratch
 
 (c) Dmitry Ponyatov <dponyatov@gmail.com>
 
 github: https://github.com/ponyatov/orth
 
-manual: https://github.com/ponyatov/orth/wiki
+### see more in manual: https://github.com/ponyatov/orth/wiki
 
 What we want to have is some interactive system able to let us
 construct software in high-level terms like data flows, deploy schemes, 
@@ -33,3 +33,4 @@ most parts of it to let you reimplement it yourself in a way you want.
 I purposely removed many of the complicated things described in the 
 [larger project](http://ponyatov.github.io/o/) to highlight a few key elements, 
 and do not overload the implementation with details.
+
