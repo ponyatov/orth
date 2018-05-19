@@ -33,4 +33,3 @@ most parts of it to let you reimplement it yourself in a way you want.
 I purposely removed many of the complicated things described in the 
 [larger project](http://ponyatov.github.io/o/) to highlight a few key elements, 
 and do not overload the implementation with details.
-

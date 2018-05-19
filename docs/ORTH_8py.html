@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Modules</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,25 +91,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a333f2052440ad910cbd5500b4a3d47d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a333f2052440ad910cbd5500b4a3d47d4"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.q</b></td></tr>
-<tr class="separator:a333f2052440ad910cbd5500b4a3d47d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091fb4311fe9160ab3872d0de46d020e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a091fb4311fe9160ab3872d0de46d020e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.qq</b></td></tr>
-<tr class="separator:a091fb4311fe9160ab3872d0de46d020e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281172ce19be2536aba53b12200dea7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a281172ce19be2536aba53b12200dea7f"></a>
+<tr class="memitem:ga333f2052440ad910cbd5500b4a3d47d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga333f2052440ad910cbd5500b4a3d47d4"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga333f2052440ad910cbd5500b4a3d47d4">ORTH.q</a></td></tr>
+<tr class="memdesc:ga333f2052440ad910cbd5500b4a3d47d4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>? ( -- )</code> print data stack <br /></td></tr>
+<tr class="separator:ga333f2052440ad910cbd5500b4a3d47d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3cdeeeb66097795806c6e754f681b54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab3cdeeeb66097795806c6e754f681b54"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gab3cdeeeb66097795806c6e754f681b54">ORTH.WORDS</a></td></tr>
+<tr class="memdesc:gab3cdeeeb66097795806c6e754f681b54"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>WORSS ( -- )</code> print vocabulary <br /></td></tr>
+<tr class="separator:gab3cdeeeb66097795806c6e754f681b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga091fb4311fe9160ab3872d0de46d020e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga091fb4311fe9160ab3872d0de46d020e"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga091fb4311fe9160ab3872d0de46d020e">ORTH.qq</a></td></tr>
+<tr class="memdesc:ga091fb4311fe9160ab3872d0de46d020e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>?? ( -- )</code> print full system state including vocabulary <br /></td></tr>
+<tr class="separator:ga091fb4311fe9160ab3872d0de46d020e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga281172ce19be2536aba53b12200dea7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga281172ce19be2536aba53b12200dea7f"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.INTERPRET</b></td></tr>
-<tr class="separator:a281172ce19be2536aba53b12200dea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga281172ce19be2536aba53b12200dea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1a49841e6eed48e133d2ef67644ffd10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a49841e6eed48e133d2ef67644ffd10"></a>
-dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.W</b> = {}</td></tr>
-<tr class="memdesc:a1a49841e6eed48e133d2ef67644ffd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">vocabulary <br /></td></tr>
-<tr class="separator:a1a49841e6eed48e133d2ef67644ffd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4178a21d4c4ca411ea8fe11a757c7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b4178a21d4c4ca411ea8fe11a757c7e"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.D</b> = []</td></tr>
-<tr class="separator:a9b4178a21d4c4ca411ea8fe11a757c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a49841e6eed48e133d2ef67644ffd10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1a49841e6eed48e133d2ef67644ffd10"></a>
+dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vm.html#ga1a49841e6eed48e133d2ef67644ffd10">ORTH.W</a> = {}</td></tr>
+<tr class="memdesc:ga1a49841e6eed48e133d2ef67644ffd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">vocabulary <br /></td></tr>
+<tr class="separator:ga1a49841e6eed48e133d2ef67644ffd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b4178a21d4c4ca411ea8fe11a757c7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9b4178a21d4c4ca411ea8fe11a757c7e"></a>
+list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vm.html#ga9b4178a21d4c4ca411ea8fe11a757c7e">ORTH.D</a> = []</td></tr>
+<tr class="memdesc:ga9b4178a21d4c4ca411ea8fe11a757c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">data stack <br /></td></tr>
+<tr class="separator:ga9b4178a21d4c4ca411ea8fe11a757c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ORTH concept language demo implementation in Python. </p>
@@ -118,7 +126,7 @@ list&#160;</td><td class="memItemRight" valign="bottom"><b>ORTH.D</b> = []</td><
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 19 2018 16:13:12 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 19 2018 16:41:29 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
