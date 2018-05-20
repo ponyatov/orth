@@ -77,10 +77,10 @@ main.Bind(wx.EVT_MENU,lambda e:main.Close(),quit)
 debug = wx.Menu() ; menubar.Append(debug,'&Debug')
 
 ## debug/stack
-stack = debug.Append(wx.ID_ANY,'&Stack',kind=wx.ITEM_CHECK)
+stack = debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
 
 ## debug/words
-words = debug.Append(wx.ID_ANY,'&Words',kind=wx.ITEM_CHECK)
+words = debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
 
 ## help submenu
 help = wx.Menu() ; menubar.Append(help,'&Help')
@@ -90,10 +90,12 @@ about = help.Append(wx.ID_ABOUT,'&About\tF1')
 ## about event callback
 def onAbout(event):
     AboutFile = open('README.md')
+    # we need only first 8 lines
     info = AboutFile.readlines()[:8]
     # functional hint to convert list to string
     info = reduce(lambda a,b:a+b,info)
     AboutFile.close()
+    # display (modal) message box
     wx.MessageBox(info)
 main.Bind(wx.EVT_MENU,onAbout,about)
 
