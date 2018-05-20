@@ -60,6 +60,33 @@ app = wx.App()
 ## main window
 main = wx.Frame(None,title=str(sys.argv)) ; main.Show()
 
+## main window menu
+menubar = wx.MenuBar() ; main.SetMenuBar(menubar)
+
+## file submenu
+file = wx.Menu() ; menubar.Append(file,'&File')
+
+## file/save
+save = file.Append(wx.ID_SAVE,'&Save')
+
+## file/quit
+quit = file.Append(wx.ID_EXIT,'&Quit')
+
+## debug submenu
+debug = wx.Menu() ; menubar.Append(debug,'&Debug')
+
+## debug/stack
+stack = debug.Append(wx.ID_ANY,'&Stack',kind=wx.ITEM_CHECK)
+
+## debug/words
+words = debug.Append(wx.ID_ANY,'&Words',kind=wx.ITEM_CHECK)
+
+## help submenu
+help = wx.Menu() ; menubar.Append(help,'&Help')
+
+## help/about
+about = help.Append(wx.ID_ABOUT,'&About\tF1')
+
 app.MainLoop()      # start GUI event processing loop
 
 ## @}
