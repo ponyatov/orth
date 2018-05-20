@@ -3,3 +3,4 @@
 *.log
 
 doxygen_sqlite3.db
+wiki/
