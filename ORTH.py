@@ -6,6 +6,8 @@
 ##
 ## manual: https://github.com/ponyatov/orth/wiki/ORTH
 
+import os,sys
+
 ## @defgroup vm Virtual Machine
 ## @{
 
@@ -35,8 +37,8 @@ W['??'] = qq
 ## @defgroup compiler Interpreter
 ## @{
 
-def INTERPRET():
-    pass
+## interpreter
+def INTERPRET(): pass
 W['INTERPRET'] = INTERPRET
 
 ## @}
@@ -45,5 +47,19 @@ W['INTERPRET'] = INTERPRET
 
 ## @defgroup gui GUI
 ## @{
+
+import wx           # wxPython
+import wx.stc       # editor extension
+
+import threading    # we need a separate thread for the interpreter
+import Queue        # and the queue to send commands from GUI
+
+## wxPython application
+app = wx.App()
+
+## main window
+main = wx.Frame(None,title=str(sys.argv)) ; main.Show()
+
+app.MainLoop()      # start GUI event processing loop
 
 ## @}
