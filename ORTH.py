@@ -71,6 +71,7 @@ save = file.Append(wx.ID_SAVE,'&Save')
 
 ## file/quit
 quit = file.Append(wx.ID_EXIT,'&Quit')
+main.Bind(wx.EVT_MENU,lambda e:main.Close(),quit)
 
 ## debug submenu
 debug = wx.Menu() ; menubar.Append(debug,'&Debug')
@@ -86,6 +87,15 @@ help = wx.Menu() ; menubar.Append(help,'&Help')
 
 ## help/about
 about = help.Append(wx.ID_ABOUT,'&About\tF1')
+## about event callback
+def onAbout(event):
+    AboutFile = open('README.md')
+    info = AboutFile.readlines()[:8]
+    # functional hint to convert list to string
+    info = reduce(lambda a,b:a+b,info)
+    AboutFile.close()
+    wx.MessageBox(info)
+main.Bind(wx.EVT_MENU,onAbout,about)
 
 app.MainLoop()      # start GUI event processing loop
 
