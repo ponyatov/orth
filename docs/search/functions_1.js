@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interpret',['INTERPRET',['../group__compiler.html#ga5a55680839dd4b721906edd0c172d5a4',1,'ORTH']]]
+  ['defaultscriptload',['defaultScriptLoad',['../group__gui.html#ga7d27b04e668f234ee6dc523d4b5f4687',1,'ORTH']]]
 ];

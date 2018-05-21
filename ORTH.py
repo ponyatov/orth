@@ -38,7 +38,7 @@ W['??'] = qq
 ## @{
 
 ## interpreter
-def INTERPRET(): pass
+def INTERPRET(SRC=''): print SRC
 W['INTERPRET'] = INTERPRET
 
 ## @}
@@ -117,7 +117,39 @@ def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
     F.close()
 defaultScriptLoad()
 
+## key press callback
+def onKey(event):
+    char = event.GetKeyCode()   # char code
+    ctrl = event.CmdDown()      # Ctrl key
+    shift = event.ShiftDown()   # Shift key
+    if char == 13 and ( ctrl or shift ): # Ctrl-Enter
+        Q.put(editor.GetSelectedText())  # push FORTH request
+    else: event.Skip()
+editor.Bind(wx.EVT_CHAR,onKey)
+
+## GUI/FORTH interfacing queue
+Q = Queue.Queue()
+
+## interpreter queue processing thread
+class Interpreter(threading.Thread):
+    ## expand `threading.Thread` with stop flag
+    def __init__(self):
+        threading.Thread.__init__(self)
+        ## stop flag
+        self.stop = False
+    ## timeouted loop over Q requests 
+    def run(self):
+        while not self.stop:
+            try: INTERPRET(Q.get(timeout=1))
+            except Queue.Empty: pass
+
+## interpreter background thread            
+interpreter = Interpreter() ; interpreter.start()
 
 app.MainLoop()      # start GUI event processing loop
+
+## stop flag
+interpreter.stop = True     # raise stop flag
+interpreter.join()          # wait until interpreter thread stops
 
 ## @}

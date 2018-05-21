@@ -59,6 +59,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -66,6 +67,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classORTH_1_1Interpreter.html">ORTH.Interpreter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpreter queue processing thread  <a href="classORTH_1_1Interpreter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga09393e8e76b3e93323513d77e009f615"><td class="memItemLeft" align="right" valign="top"><a id="ga09393e8e76b3e93323513d77e009f615"></a>
@@ -80,6 +87,10 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga7d27b04e668f234ee6dc523d4b5f4687">ORTH.defaultScriptLoad</a> (SrcFileName=sys.argv[0]+'.src')</td></tr>
 <tr class="memdesc:ga7d27b04e668f234ee6dc523d4b5f4687"><td class="mdescLeft">&#160;</td><td class="mdescRight">load default editor script <br /></td></tr>
 <tr class="separator:ga7d27b04e668f234ee6dc523d4b5f4687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="memItemLeft" align="right" valign="top"><a id="ga5cc7fdd678e5a3c1642a7455043aea8b"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga5cc7fdd678e5a3c1642a7455043aea8b">ORTH.onKey</a> (event)</td></tr>
+<tr class="memdesc:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">key press callback <br /></td></tr>
+<tr class="separator:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -131,12 +142,24 @@ Debug&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga526dada650ac3821e187240f52354140">ORTH.editor</a> = wx.stc.StyledTextCtrl(main)</td></tr>
 <tr class="memdesc:ga526dada650ac3821e187240f52354140"><td class="mdescLeft">&#160;</td><td class="mdescRight">script editor widget <br /></td></tr>
 <tr class="separator:ga526dada650ac3821e187240f52354140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacde047a14cc734e80877555b666f31f8"><td class="memItemLeft" align="right" valign="top"><a id="gacde047a14cc734e80877555b666f31f8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gacde047a14cc734e80877555b666f31f8">ORTH.Q</a> = Queue.Queue()</td></tr>
+<tr class="memdesc:gacde047a14cc734e80877555b666f31f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI/FORTH interfacing queue. <br /></td></tr>
+<tr class="separator:gacde047a14cc734e80877555b666f31f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga277bd687633d5a70433e3b1a7f89b149"><td class="memItemLeft" align="right" valign="top"><a id="ga277bd687633d5a70433e3b1a7f89b149"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga277bd687633d5a70433e3b1a7f89b149">ORTH.interpreter</a> = <a class="el" href="classORTH_1_1Interpreter.html">Interpreter</a>() ; interpreter.start()</td></tr>
+<tr class="memdesc:ga277bd687633d5a70433e3b1a7f89b149"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpreter background thread <br /></td></tr>
+<tr class="separator:ga277bd687633d5a70433e3b1a7f89b149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac596898dc68acbf0313a5be6631fd754"><td class="memItemLeft" align="right" valign="top"><a id="gac596898dc68acbf0313a5be6631fd754"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gac596898dc68acbf0313a5be6631fd754">ORTH.stop</a></td></tr>
+<tr class="memdesc:gac596898dc68acbf0313a5be6631fd754"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop flag <br /></td></tr>
+<tr class="separator:gac596898dc68acbf0313a5be6631fd754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 21 2018 10:29:07 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 21 2018 14:16:56 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

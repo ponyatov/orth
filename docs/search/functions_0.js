@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defaultscriptload',['defaultScriptLoad',['../group__gui.html#ga7d27b04e668f234ee6dc523d4b5f4687',1,'ORTH']]]
+  ['_5f_5finit_5f_5f',['__init__',['../classORTH_1_1Interpreter.html#ad0ff48ad63502612d679302a5cf411e6',1,'ORTH::Interpreter']]]
 ];
