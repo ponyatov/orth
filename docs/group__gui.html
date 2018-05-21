@@ -59,6 +59,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#groups">Modules</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -66,7 +67,26 @@ $(function() {
 <div class="title">GUI</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Collaboration diagram for GUI:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__gui.png" border="0" alt="" usemap="#group____gui"/>
+<map name="group____gui" id="group____gui">
+<area shape="rect" id="node2" href="group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="109,5,165,32"/>
+<area shape="rect" id="node3" href="group__colorizer.html" title="syntax colorizer using PLY lex/yacc library " alt="" coords="100,56,175,83"/>
+</map>
+</td></tr></table></center>
+</div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__editor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__editor.html">Editor</a></td></tr>
+<tr class="memdesc:group__editor"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple FORTH code editor with syntax highlight and vocabulary completion <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group__colorizer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html">Colorizer</a></td></tr>
+<tr class="memdesc:group__colorizer"><td class="mdescLeft">&#160;</td><td class="mdescRight">syntax colorizer using PLY lex/yacc library <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classORTH_1_1Interpreter.html">ORTH.Interpreter</a></td></tr>
@@ -83,14 +103,6 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gaa9b417d20bbaa2ac0326941906b44ba9">ORTH.onAbout</a> (event)</td></tr>
 <tr class="memdesc:gaa9b417d20bbaa2ac0326941906b44ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">about event callback <br /></td></tr>
 <tr class="separator:gaa9b417d20bbaa2ac0326941906b44ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d27b04e668f234ee6dc523d4b5f4687"><td class="memItemLeft" align="right" valign="top"><a id="ga7d27b04e668f234ee6dc523d4b5f4687"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga7d27b04e668f234ee6dc523d4b5f4687">ORTH.defaultScriptLoad</a> (SrcFileName=sys.argv[0]+'.src')</td></tr>
-<tr class="memdesc:ga7d27b04e668f234ee6dc523d4b5f4687"><td class="mdescLeft">&#160;</td><td class="mdescRight">load default editor script <br /></td></tr>
-<tr class="separator:ga7d27b04e668f234ee6dc523d4b5f4687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="memItemLeft" align="right" valign="top"><a id="ga5cc7fdd678e5a3c1642a7455043aea8b"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga5cc7fdd678e5a3c1642a7455043aea8b">ORTH.onKey</a> (event)</td></tr>
-<tr class="memdesc:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">key press callback <br /></td></tr>
-<tr class="separator:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -122,14 +134,6 @@ Variables</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gad04437bc9d2fb8e4f6222a5e203f19f0">ORTH.debug</a> = wx.Menu() ; menubar.Append(debug,'&amp;Debug')</td></tr>
 <tr class="memdesc:gad04437bc9d2fb8e4f6222a5e203f19f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">debug submenu <br /></td></tr>
 <tr class="separator:gad04437bc9d2fb8e4f6222a5e203f19f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6529051d8defb4f46df5740cf177020"><td class="memItemLeft" align="right" valign="top"><a id="gad6529051d8defb4f46df5740cf177020"></a>
-Debug&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gad6529051d8defb4f46df5740cf177020">ORTH.stack</a> = debug.Append(wx.ID_ANY,'&amp;Stack\tF9',kind=wx.ITEM_CHECK)</td></tr>
-<tr class="memdesc:gad6529051d8defb4f46df5740cf177020"><td class="mdescLeft">&#160;</td><td class="mdescRight">debug/stack <br /></td></tr>
-<tr class="separator:gad6529051d8defb4f46df5740cf177020"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga24c9b8c31c6cc030d650b425001c3a31"><td class="memItemLeft" align="right" valign="top"><a id="ga24c9b8c31c6cc030d650b425001c3a31"></a>
-Debug&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga24c9b8c31c6cc030d650b425001c3a31">ORTH.words</a> = debug.Append(wx.ID_ANY,'&amp;Words\tF8',kind=wx.ITEM_CHECK)</td></tr>
-<tr class="memdesc:ga24c9b8c31c6cc030d650b425001c3a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">debug/words <br /></td></tr>
-<tr class="separator:ga24c9b8c31c6cc030d650b425001c3a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga561d145cb4e03db9aa8aafe0cae8d952"><td class="memItemLeft" align="right" valign="top"><a id="ga561d145cb4e03db9aa8aafe0cae8d952"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga561d145cb4e03db9aa8aafe0cae8d952">ORTH.help</a> = wx.Menu() ; menubar.Append(help,'&amp;Help')</td></tr>
 <tr class="memdesc:ga561d145cb4e03db9aa8aafe0cae8d952"><td class="mdescLeft">&#160;</td><td class="mdescRight">help submenu <br /></td></tr>
@@ -138,18 +142,10 @@ Debug&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga846339d10e600f6e91d177bd9df8eb92">ORTH.about</a> = help.Append(wx.ID_ABOUT,'&amp;About\tF1')</td></tr>
 <tr class="memdesc:ga846339d10e600f6e91d177bd9df8eb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">help/about <br /></td></tr>
 <tr class="separator:ga846339d10e600f6e91d177bd9df8eb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga526dada650ac3821e187240f52354140"><td class="memItemLeft" align="right" valign="top"><a id="ga526dada650ac3821e187240f52354140"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga526dada650ac3821e187240f52354140">ORTH.editor</a> = wx.stc.StyledTextCtrl(main)</td></tr>
-<tr class="memdesc:ga526dada650ac3821e187240f52354140"><td class="mdescLeft">&#160;</td><td class="mdescRight">script editor widget <br /></td></tr>
-<tr class="separator:ga526dada650ac3821e187240f52354140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacde047a14cc734e80877555b666f31f8"><td class="memItemLeft" align="right" valign="top"><a id="gacde047a14cc734e80877555b666f31f8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gacde047a14cc734e80877555b666f31f8">ORTH.Q</a> = Queue.Queue()</td></tr>
 <tr class="memdesc:gacde047a14cc734e80877555b666f31f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI/FORTH interfacing queue. <br /></td></tr>
 <tr class="separator:gacde047a14cc734e80877555b666f31f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga277bd687633d5a70433e3b1a7f89b149"><td class="memItemLeft" align="right" valign="top"><a id="ga277bd687633d5a70433e3b1a7f89b149"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#ga277bd687633d5a70433e3b1a7f89b149">ORTH.interpreter</a> = <a class="el" href="classORTH_1_1Interpreter.html">Interpreter</a>() ; interpreter.start()</td></tr>
-<tr class="memdesc:ga277bd687633d5a70433e3b1a7f89b149"><td class="mdescLeft">&#160;</td><td class="mdescRight">interpreter background thread <br /></td></tr>
-<tr class="separator:ga277bd687633d5a70433e3b1a7f89b149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac596898dc68acbf0313a5be6631fd754"><td class="memItemLeft" align="right" valign="top"><a id="gac596898dc68acbf0313a5be6631fd754"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gac596898dc68acbf0313a5be6631fd754">ORTH.stop</a></td></tr>
 <tr class="memdesc:gac596898dc68acbf0313a5be6631fd754"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop flag <br /></td></tr>
@@ -159,7 +155,7 @@ Debug&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gro
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 21 2018 14:16:56 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 21 2018 16:32:39 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

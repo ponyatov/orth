@@ -34,7 +34,7 @@ W['??'] = qq
 
 ## @}
 
-## @defgroup compiler Interpreter
+## @defgroup interpreter Interpreter
 ## @{
 
 ## interpreter
@@ -47,6 +47,9 @@ W['INTERPRET'] = INTERPRET
 
 ## @defgroup gui GUI
 ## @{
+
+## @defgroup editor Editor
+## simple FORTH code editor with syntax highlight and vocabulary completion
 
 import wx           # wxPython
 import wx.stc       # editor extension
@@ -83,10 +86,12 @@ main.Bind(wx.EVT_MENU,lambda e:main.Close(),quit)
 ## debug submenu
 debug = wx.Menu() ; menubar.Append(debug,'&Debug')
 
-## debug/stack
+## debug/stack menu item
+## @ingroup debug
 stack = debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
 
-## debug/words
+## debug/words menu item
+## @ingroup debug
 words = debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
 
 ## help submenu
@@ -107,9 +112,11 @@ def onAbout(event):
 main.Bind(wx.EVT_MENU,onAbout,about)
 
 ## script editor widget
+## @ingroup editor
 editor = wx.stc.StyledTextCtrl(main)
 
 ## load default editor script
+## @ingroup editor
 def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
     main.SetTitle(SrcFileName)
     F = open(SrcFileName)
@@ -118,6 +125,7 @@ def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
 defaultScriptLoad()
 
 ## key press callback
+## @ingroup editor
 def onKey(event):
     char = event.GetKeyCode()   # char code
     ctrl = event.CmdDown()      # Ctrl key
@@ -126,6 +134,67 @@ def onKey(event):
         Q.put(editor.GetSelectedText())  # push FORTH request
     else: event.Skip()
 editor.Bind(wx.EVT_CHAR,onKey)
+
+## @defgroup colorizer Colorizer
+## @brief syntax colorizer using PLY lex/yacc library
+## @{
+
+import ply.lex as lex
+
+## colorizer token types
+tokens = ['ANY','COMMENT','NUMBER','COMPILER']
+
+## ignore spaces
+t_ignore = ' \t\r\n'
+
+## comment
+t_COMMENT = r'[\#\\].*\n|\(.*\)'
+## number
+t_NUMBER = r'[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'
+## word name of undefined
+t_ANY = r'[a-zA-Z0-9_]+'
+## compiler words
+t_COMPILER = r'[\:\;]{1}'
+
+## lexer error callback
+def t_error(t): raise SyntaxError(t)
+
+## FORTH coloring lexer
+lexer = lex.lex()
+
+## get monospace font from system
+font = wx.Font(14, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
+editor.StyleSetSpec(wx.stc.STC_STYLE_DEFAULT,
+                    "face:%s,size:%d" % (font.GetFaceName(), font.GetPointSize()))
+## comment
+style_COMMENT = 1
+editor.StyleSetSpec(style_COMMENT,'fore:#0000FF,normal')
+## number
+style_NUMBER = 2
+editor.StyleSetSpec(style_NUMBER,'fore:#008800')
+## colon definition
+style_COMPILER = 3
+editor.StyleSetSpec(style_COMPILER,'fore:#FF0000,bold')
+
+## colorer callback
+def onStyle(event):
+    lexer.input(editor.GetValue())
+    while True:
+        token = lexer.token()
+        if not token: break
+        editor.StartStyling(token.lexpos,0xFF)
+        if token.type == 'COMMENT':
+            editor.SetStyling(len(token.value),style_COMMENT)
+        elif token.type == 'NUMBER':
+            editor.SetStyling(len(token.value),style_NUMBER)
+        elif token.type == 'COMPILER':
+            editor.SetStyling(len(token.value),style_COMPILER)
+        else:
+            editor.SetStyling(0,0)
+            
+editor.Bind(wx.stc.EVT_STC_STYLENEEDED,onStyle)
+
+## @}
 
 ## GUI/FORTH interfacing queue
 Q = Queue.Queue()
@@ -144,6 +213,7 @@ class Interpreter(threading.Thread):
             except Queue.Empty: pass
 
 ## interpreter background thread            
+## @ingroup interpreter
 interpreter = Interpreter() ; interpreter.start()
 
 app.MainLoop()      # start GUI event processing loop

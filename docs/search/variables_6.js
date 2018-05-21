@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../group__gui.html#ga660ff9e5ad9b830827ef3b371e4ecda5',1,'ORTH']]],
-  ['menubar',['menubar',['../group__gui.html#ga7c0f283ac7b6949a7092ed9b437f110f',1,'ORTH']]]
+  ['lexer',['lexer',['../group__colorizer.html#gad67ec774bd672ba17b02e2cfb523bfe3',1,'ORTH']]]
 ];

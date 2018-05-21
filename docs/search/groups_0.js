@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debug',['Debug',['../group__debug.html',1,'']]]
+  ['colorizer',['Colorizer',['../group__colorizer.html',1,'']]]
 ];

@@ -1,0 +1,4 @@
+<map id="GUI" name="GUI">
+<area shape="rect" id="node2" href="$group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="109,5,165,32"/>
+<area shape="rect" id="node3" href="$group__colorizer.html" title="syntax colorizer using PLY lex/yacc library " alt="" coords="100,56,175,83"/>
+</map>

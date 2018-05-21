@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file',['file',['../group__gui.html#ga808c9c52d19660d2a59828d4a1e53ba1',1,'ORTH']]]
+  ['editor',['editor',['../group__editor.html#ga526dada650ac3821e187240f52354140',1,'ORTH.editor()'],['../group__editor.html',1,'(Global Namespace)']]]
 ];
