@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['save',['save',['../group__gui.html#gad3337aa2c6671b3123c4d3cc7a86112a',1,'ORTH']]],
-  ['stack',['stack',['../group__gui.html#gab4f2f4be7a9ef7f6f1f872ac463e6bcc',1,'ORTH']]]
+  ['q',['q',['../group__debug.html#gaed56ea6b2fae5b8964616a6e0097b8cc',1,'ORTH']]],
+  ['qq',['qq',['../group__debug.html#gafab1dd40f25fadcf5e8ef021fa7296af',1,'ORTH']]],
+  ['quit',['quit',['../group__gui.html#ga8bb1cb55cd6821c26c3b42439c45340a',1,'ORTH']]]
 ];

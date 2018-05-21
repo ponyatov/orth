@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['q',['q',['../group__debug.html#ga333f2052440ad910cbd5500b4a3d47d4',1,'ORTH']]],
-  ['qq',['qq',['../group__debug.html#ga091fb4311fe9160ab3872d0de46d020e',1,'ORTH']]],
-  ['quit',['quit',['../group__gui.html#ga904559841e79a0336a6088cc6048a1c2',1,'ORTH']]]
+  ['onabout',['onAbout',['../group__gui.html#gaa9b417d20bbaa2ac0326941906b44ba9',1,'ORTH']]],
+  ['orth_2epy',['ORTH.py',['../ORTH_8py.html',1,'']]]
 ];

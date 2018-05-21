@@ -99,6 +99,17 @@ def onAbout(event):
     wx.MessageBox(info)
 main.Bind(wx.EVT_MENU,onAbout,about)
 
+## script editor widget
+editor = wx.stc.StyledTextCtrl(main)
+
+## load default editor script
+def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
+    main.SetTitle(SrcFileName)
+    F = open(SrcFileName)
+    editor.SetValue(F.read())
+    F.close()
+defaultScriptLoad()
+
 app.MainLoop()      # start GUI event processing loop
 
 ## @}

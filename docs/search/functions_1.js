@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onabout',['onAbout',['../group__gui.html#ga1dc4887fe428855c97576a94772bc787',1,'ORTH']]]
+  ['interpret',['INTERPRET',['../group__compiler.html#ga5a55680839dd4b721906edd0c172d5a4',1,'ORTH']]]
 ];
