@@ -166,6 +166,9 @@ lexer = lex.lex()
 font = wx.Font(14, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
 editor.StyleSetSpec(wx.stc.STC_STYLE_DEFAULT,
                     "face:%s,size:%d" % (font.GetFaceName(), font.GetPointSize()))
+## default style
+style_DEFAULT = wx.stc.STC_STYLE_DEFAULT
+editor.StyleSetSpec(style_DEFAULT,'fore:#000000')
 ## comment
 style_COMMENT = 1
 editor.StyleSetSpec(style_COMMENT,'fore:#0000FF,normal')
@@ -178,7 +181,11 @@ editor.StyleSetSpec(style_COMPILER,'fore:#FF0000,bold')
 
 ## colorer callback
 def onStyle(event):
-    lexer.input(editor.GetValue())
+    # feed lexer
+    text = editor.GetValue() ; lexer.input(text)
+    # restart styles
+#     editor.StartStyling(0,0xFF) ; editor.SetStyling(len(text),style_DEFAULT)
+    # process source code via coloring lexer
     while True:
         token = lexer.token()
         if not token: break
