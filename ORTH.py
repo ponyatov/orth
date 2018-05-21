@@ -68,6 +68,13 @@ file = wx.Menu() ; menubar.Append(file,'&File')
 
 ## file/save
 save = file.Append(wx.ID_SAVE,'&Save')
+## file/save callback
+def onSave(event):
+    FileName = main.GetTitle()
+    F = open(FileName,'w')
+    F.write(editor.GetValue())
+    F.close()
+main.Bind(wx.EVT_MENU,onSave,save)
 
 ## file/quit
 quit = file.Append(wx.ID_EXIT,'&Quit')
@@ -96,7 +103,7 @@ def onAbout(event):
     info = reduce(lambda a,b:a+b,info)
     AboutFile.close()
     # display (modal) message box
-    wx.MessageBox(info)
+    wx.MessageBox(info,'About',wx.OK|wx.ICON_INFORMATION)
 main.Bind(wx.EVT_MENU,onAbout,about)
 
 ## script editor widget
@@ -109,6 +116,7 @@ def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
     editor.SetValue(F.read())
     F.close()
 defaultScriptLoad()
+
 
 app.MainLoop()      # start GUI event processing loop
 
