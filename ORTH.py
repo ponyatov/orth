@@ -151,7 +151,7 @@ t_ignore = ' \t\r\n'
 t_COMMENT = r'[\#\\].*\n|\(.*\)'
 ## number
 t_NUMBER = r'[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'
-## word name of undefined
+## word name or undefined
 t_ANY = r'[a-zA-Z0-9_]+'
 ## compiler words
 t_COMPILER = r'[\:\;]{1}'

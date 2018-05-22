@@ -1,4 +1,4 @@
 # line comment
--01 +002.3 -04e+005	ORTH has no numbers
+-01 +002.3 -04e+005	\ ORTH has no numbers
 : empty ( -- ) ;	\ colon definition
 : recursive ( -- ) empty recursive ;
