@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['onabout',['onAbout',['../group__gui.html#gaa9b417d20bbaa2ac0326941906b44ba9',1,'ORTH']]],
+  ['onabout',['onAbout',['../classORTH_1_1Editor.html#aed5edb7613c786b4b3eee6da3fbe081a',1,'ORTH::Editor']]],
   ['onkey',['onKey',['../group__editor.html#ga5cc7fdd678e5a3c1642a7455043aea8b',1,'ORTH']]],
-  ['onsave',['onSave',['../group__gui.html#ga09393e8e76b3e93323513d77e009f615',1,'ORTH']]],
-  ['onstyle',['onStyle',['../group__colorizer.html#ga84b78f49eaa79d9db033e7be894a4f3b',1,'ORTH']]],
+  ['onload',['onLoad',['../group__editor.html#gadd41baec7a0078505630b80e7ecb69b5',1,'ORTH::Editor']]],
+  ['onsave',['onSave',['../classORTH_1_1Editor.html#ab15587ca507c609cddebb60420e7e42c',1,'ORTH::Editor']]],
+  ['onstyle',['onStyle',['../classORTH_1_1Editor.html#a7bc4789ec7b32382e003aacb3a8a4e67',1,'ORTH::Editor']]],
   ['orth_2epy',['ORTH.py',['../ORTH_8py.html',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../group__gui.html#ga660ff9e5ad9b830827ef3b371e4ecda5',1,'ORTH']]],
-  ['menubar',['menubar',['../group__gui.html#ga7c0f283ac7b6949a7092ed9b437f110f',1,'ORTH']]]
+  ['menubar',['menubar',['../classORTH_1_1Editor.html#a3b17a1c4d060a4f42970f76f0a636388',1,'ORTH::Editor']]]
 ];

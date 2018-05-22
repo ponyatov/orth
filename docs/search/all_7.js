@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['help',['help',['../group__gui.html#ga561d145cb4e03db9aa8aafe0cae8d952',1,'ORTH']]]
+  ['help',['help',['../classORTH_1_1Editor.html#ace4161213b479594a3f3593b45a0638f',1,'ORTH::Editor']]]
 ];

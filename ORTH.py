@@ -29,7 +29,7 @@ def WORDS(): print W
 W['WORDS'] = WORDS
 
 ## `?? ( -- )` print full system state including vocabulary
-def qq(): WORDS(); q()
+def qq(): WORDS() ; q()
 W['??'] = qq
 
 ## @}
@@ -60,70 +60,6 @@ import Queue        # and the queue to send commands from GUI
 ## wxPython application
 app = wx.App()
 
-## main window
-main = wx.Frame(None,title=str(sys.argv)) ; main.Show()
-
-## main window menu
-menubar = wx.MenuBar() ; main.SetMenuBar(menubar)
-
-## file submenu
-file = wx.Menu() ; menubar.Append(file,'&File')
-
-## file/save
-save = file.Append(wx.ID_SAVE,'&Save')
-## file/save callback
-def onSave(event):
-    FileName = main.GetTitle()
-    F = open(FileName,'w')
-    F.write(editor.GetValue())
-    F.close()
-main.Bind(wx.EVT_MENU,onSave,save)
-
-## file/quit
-quit = file.Append(wx.ID_EXIT,'&Quit')
-main.Bind(wx.EVT_MENU,lambda e:main.Close(),quit)
-
-## debug submenu
-debug = wx.Menu() ; menubar.Append(debug,'&Debug')
-
-## debug/stack menu item
-## @ingroup debug
-stack = debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
-
-## debug/words menu item
-## @ingroup debug
-words = debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
-
-## help submenu
-help = wx.Menu() ; menubar.Append(help,'&Help')
-
-## help/about
-about = help.Append(wx.ID_ABOUT,'&About\tF1')
-## about event callback
-def onAbout(event):
-    AboutFile = open('README.md')
-    # we need only first 8 lines
-    info = AboutFile.readlines()[:8]
-    # functional hint to convert list to string
-    info = reduce(lambda a,b:a+b,info)
-    AboutFile.close()
-    # display (modal) message box
-    wx.MessageBox(info,'About',wx.OK|wx.ICON_INFORMATION)
-main.Bind(wx.EVT_MENU,onAbout,about)
-
-## script editor widget
-## @ingroup editor
-editor = wx.stc.StyledTextCtrl(main)
-
-## load default editor script
-## @ingroup editor
-def defaultScriptLoad(SrcFileName = sys.argv[0]+'.src'):
-    main.SetTitle(SrcFileName)
-    F = open(SrcFileName)
-    editor.SetValue(F.read())
-    F.close()
-defaultScriptLoad()
-
 ## key press callback
 ## @ingroup editor
 def onKey(event):
@@ -133,7 +69,7 @@ def onKey(event):
     if char == 13 and ( ctrl or shift ): # Ctrl-Enter
         Q.put(editor.GetSelectedText())  # push FORTH request
     else: event.Skip()
-editor.Bind(wx.EVT_CHAR,onKey)
+# editor.Bind(wx.EVT_CHAR,onKey)
 
 ## @defgroup colorizer Colorizer
 ## @brief syntax colorizer using PLY lex/yacc library
@@ -162,44 +98,150 @@ def t_error(t): raise SyntaxError(t)
 ## FORTH coloring lexer
 lexer = lex.lex()
 
-## get monospace font from system
-font = wx.Font(14, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
-editor.StyleSetSpec(wx.stc.STC_STYLE_DEFAULT,
-                    "face:%s,size:%d" % (font.GetFaceName(), font.GetPointSize()))
-## default style
-style_DEFAULT = wx.stc.STC_STYLE_DEFAULT
-editor.StyleSetSpec(style_DEFAULT,'fore:#000000')
-## comment
-style_COMMENT = 1
-editor.StyleSetSpec(style_COMMENT,'fore:#0000FF,normal')
-## number
-style_NUMBER = 2
-editor.StyleSetSpec(style_NUMBER,'fore:#008800')
-## colon definition
-style_COMPILER = 3
-editor.StyleSetSpec(style_COMPILER,'fore:#FF0000,bold')
-
-## colorer callback
-def onStyle(event):
-    # feed lexer
-    text = editor.GetValue() ; lexer.input(text)
-    # restart styles
-#     editor.StartStyling(0,0xFF) ; editor.SetStyling(len(text),style_DEFAULT)
-    # process source code via coloring lexer
-    while True:
-        token = lexer.token()
-        if not token: break
-        editor.StartStyling(token.lexpos,0xFF)
-        if token.type == 'COMMENT':
-            editor.SetStyling(len(token.value),style_COMMENT)
-        elif token.type == 'NUMBER':
-            editor.SetStyling(len(token.value),style_NUMBER)
-        elif token.type == 'COMPILER':
-            editor.SetStyling(len(token.value),style_COMPILER)
-        else:
-            editor.SetStyling(0,0)
             
-editor.Bind(wx.stc.EVT_STC_STYLENEEDED,onStyle)
+
+# ## stack dump window
+# wnstack = wx.Frame(main,title=sys.argv[0]+'.stack')
+# ## toggle stack window callback
+# def onStack(event):
+#     if wnstack.IsShown():   wnstack.Hide()
+#     else:                   wnstack.Show()
+# ## bind to debug/stack menu
+# main.Bind(wx.EVT_MENU,onStack,stack)
+# 
+# ## vocabulary dump window
+# wnwords = wx.Frame(main,title=sys.argv[0]+'.words')
+# ## toggle vocabulary window callback
+# def onWords(event):
+#     if wnwords.IsShown():   wnwords.Hide()
+#     else:                   wnwords.Show()
+# ## bind to debug/words menu
+# main.Bind(wx.EVT_MENU,onWords,words)
+
+## GUI Editor class
+## @ingroup editor
+class Editor(wx.Frame):
+    ## define constructor parameters to default values specific for our app
+    def __init__(self,parent=None,filename=sys.argv[0]+'.src'):
+        ## use window title = file name to visually bind file/window
+        self.filename = filename
+        wx.Frame.__init__(self,parent,title=self.filename)
+        self.initMenu()
+        self.initEditor()
+        self.initStatusBar()
+    ## init menu
+    def initMenu(self):
+        ## window menu
+        self.menubar = wx.MenuBar() ; self.SetMenuBar(self.menubar)
+        
+        ## file submenu
+        self.file = wx.Menu() ; self.menubar.Append(self.file,'&File')
+        ## file/save
+        self.save = self.file.Append(wx.ID_SAVE,'&Save')
+        self.Bind(wx.EVT_MENU,self.onSave,self.save)
+        ## file/quit
+        self.quit = self.file.Append(wx.ID_EXIT,'&Quit')
+        self.Bind(wx.EVT_MENU,lambda e:self.Close(),self.quit)
+        
+        ## debug submenu
+        self.debug = wx.Menu() ; self.menubar.Append(self.debug,'&Debug')
+        ## debug/stack
+        ## @ingroup debug
+        self.stack = self.debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
+        ## debug/words
+        ## @ingroup debug
+        self.words = self.debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
+        
+        ## help submenu
+        self.help = wx.Menu() ; self.menubar.Append(self.help,'&Help')
+        ## help/about
+        self.about = self.help.Append(wx.ID_ABOUT,'&About\tF1')
+        self.Bind(wx.EVT_MENU,self.onAbout,self.about)
+    ## init editor
+    def initEditor(self):
+        ## script editor widget
+        ## @ingroup editor
+        self.editor = wx.stc.StyledTextCtrl(self)
+        ## init colorizer
+        self.initColorizer()
+        ## load default file name
+        self.onLoad(None)
+    ## init statusbar
+    def initStatusBar(self):
+        ## statusbar
+        self.statusbar = wx.StatusBar(self)
+        self.SetStatusBar(self.statusbar)
+        
+    ## about event callback
+    def onAbout(self,event):
+        AboutFile = open('README.md')
+        # we need only first 8 lines
+        info = AboutFile.readlines()[:8]
+        # functional hint to convert list to string
+        info = reduce(lambda a,b:a+b,info)
+        AboutFile.close()
+        # display (modal) message box
+        wx.MessageBox(info,'About',wx.OK|wx.ICON_INFORMATION)
+        
+    ## file/save callback
+    def onSave(self,event):
+        FileName = self.GetTitle() 
+        F = open(FileName,'w') ; F.write(self.editor.GetValue()) ; F.close()
+        
+    ## (re)load file event callback
+    ## @ingroup editor
+    def onLoad(self,event):
+        F = open(self.filename)
+        self.editor.SetValue(F.read()) ; F.close()
+    
+    ## init colorizer styles & lexer
+    ## @ingroup colorizer
+    def initColorizer(self):
+        ## get monospace font from system
+        self.font = wx.Font(14, wx.FONTFAMILY_MODERN,
+            wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
+        ## load default editor style
+        self.editor.StyleSetSpec(wx.stc.STC_STYLE_DEFAULT,
+            "face:%s,size:%d" % (
+                self.font.GetFaceName(), self.font.GetPointSize()))
+        # configure styles
+        ## default style
+        self.style_DEFAULT = wx.stc.STC_STYLE_DEFAULT
+        self.editor.StyleSetSpec(self.style_DEFAULT,'fore:#000000')
+        ## comment
+        self.style_COMMENT = 1
+        self.editor.StyleSetSpec(self.style_COMMENT,'fore:#0000FF,normal')
+        ## number
+        self.style_NUMBER = 2
+        self.editor.StyleSetSpec(self.style_NUMBER,'fore:#008800')
+        ## colon definition
+        self.style_COMPILER = 3
+        self.editor.StyleSetSpec(self.style_COMPILER,'fore:#FF0000,bold')
+        # bind colorizer event
+        self.editor.Bind(wx.stc.EVT_STC_STYLENEEDED,self.onStyle)
+
+    ## colorizer  callback
+    def onStyle(self,event):
+        # feed lexer
+        text = self.editor.GetValue() ; lexer.input(text)
+        # restart styles
+        # editor.StartStyling(0,0xFF) ; editor.SetStyling(len(text),style_DEFAULT)
+        # process source code via coloring lexer
+        while True:
+            token = lexer.token()
+            if not token: break
+            self.editor.StartStyling(token.lexpos,0xFF)
+            if token.type == 'COMMENT':
+                self.editor.SetStyling(len(token.value),self.style_COMMENT)
+            elif token.type == 'NUMBER':
+                self.editor.SetStyling(len(token.value),self.style_NUMBER)
+            elif token.type == 'COMPILER':
+                self.editor.SetStyling(len(token.value),self.style_COMPILER)
+            else:
+                self.editor.SetStyling(0,0)
+
+## main window
+wnMain = Editor(filename = sys.argv[0]+'.src') ; wnMain.Show()
 
 ## @}
 

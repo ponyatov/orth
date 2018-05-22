@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interpreter',['Interpreter',['../classORTH_1_1Interpreter.html',1,'ORTH']]]
+  ['editor',['Editor',['../classORTH_1_1Editor.html',1,'ORTH']]]
 ];

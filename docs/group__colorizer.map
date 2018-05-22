@@ -1,3 +1,4 @@
 <map id="Colorizer" name="Colorizer">
-<area shape="rect" id="node1" href="$group__gui.html" title="GUI" alt="" coords="5,5,52,32"/>
+<area shape="rect" id="node1" href="$group__gui.html" title="GUI" alt="" coords="5,7,52,33"/>
+<area shape="rect" id="node2" href="$group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="301,7,357,33"/>
 </map>

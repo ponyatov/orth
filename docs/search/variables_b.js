@@ -1,5 +1,6 @@
 var searchData=
 [
   ['w',['W',['../group__vm.html#ga1a49841e6eed48e133d2ef67644ffd10',1,'ORTH']]],
-  ['words',['words',['../group__debug.html#ga24c9b8c31c6cc030d650b425001c3a31',1,'ORTH']]]
+  ['wnmain',['wnMain',['../group__colorizer.html#ga9d95f5a77f0bb38dd23abdf157f4c5ad',1,'ORTH']]],
+  ['words',['words',['../group__debug.html#ga369feab06d5fff900c314beefe2ed2a3',1,'ORTH::Editor']]]
 ];

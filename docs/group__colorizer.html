@@ -59,6 +59,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -73,21 +74,28 @@ Collaboration diagram for Colorizer:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="group__colorizer.png" border="0" alt="" usemap="#group____colorizer"/>
 <map name="group____colorizer" id="group____colorizer">
-<area shape="rect" id="node1" href="group__gui.html" title="GUI" alt="" coords="5,5,52,32"/>
+<area shape="rect" id="node1" href="group__gui.html" title="GUI" alt="" coords="5,7,52,33"/>
+<area shape="rect" id="node2" href="group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="301,7,357,33"/>
 </map>
 </td></tr></table></center>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classORTH_1_1Editor.html">ORTH.Editor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI <a class="el" href="classORTH_1_1Editor.html" title="GUI Editor class. ">Editor</a> class.  <a href="classORTH_1_1Editor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga920aa252a68d2c3b65d7d3e07e015163"><td class="memItemLeft" align="right" valign="top"><a id="ga920aa252a68d2c3b65d7d3e07e015163"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga920aa252a68d2c3b65d7d3e07e015163">ORTH.t_error</a> (t)</td></tr>
 <tr class="memdesc:ga920aa252a68d2c3b65d7d3e07e015163"><td class="mdescLeft">&#160;</td><td class="mdescRight">lexer error callback <br /></td></tr>
 <tr class="separator:ga920aa252a68d2c3b65d7d3e07e015163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga84b78f49eaa79d9db033e7be894a4f3b"><td class="memItemLeft" align="right" valign="top"><a id="ga84b78f49eaa79d9db033e7be894a4f3b"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga84b78f49eaa79d9db033e7be894a4f3b">ORTH.onStyle</a> (event)</td></tr>
-<tr class="memdesc:ga84b78f49eaa79d9db033e7be894a4f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">colorer callback <br /></td></tr>
-<tr class="separator:ga84b78f49eaa79d9db033e7be894a4f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c490ad579835f3b94779b8def625a3b"><td class="memItemLeft" align="right" valign="top"><a id="ga2c490ad579835f3b94779b8def625a3b"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga2c490ad579835f3b94779b8def625a3b">ORTH.Editor.initColorizer</a> (self)</td></tr>
+<tr class="memdesc:ga2c490ad579835f3b94779b8def625a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">init colorizer styles &amp; lexer <br /></td></tr>
+<tr class="separator:ga2c490ad579835f3b94779b8def625a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -109,7 +117,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 <tr class="separator:ga5235d0d2818a34eacf8a766800525835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad31e222f264c9eee66b334b9bf7791d7"><td class="memItemLeft" align="right" valign="top"><a id="gad31e222f264c9eee66b334b9bf7791d7"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gad31e222f264c9eee66b334b9bf7791d7">ORTH.t_ANY</a> = r'[a-zA-Z0-9_]+'</td></tr>
-<tr class="memdesc:gad31e222f264c9eee66b334b9bf7791d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">word name of undefined <br /></td></tr>
+<tr class="memdesc:gad31e222f264c9eee66b334b9bf7791d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">word name or undefined <br /></td></tr>
 <tr class="separator:gad31e222f264c9eee66b334b9bf7791d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga06a50d252a69d02b89bc2bd1846aefda"><td class="memItemLeft" align="right" valign="top"><a id="ga06a50d252a69d02b89bc2bd1846aefda"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga06a50d252a69d02b89bc2bd1846aefda">ORTH.t_COMPILER</a> = r'[\:\;]{1}'</td></tr>
@@ -119,33 +127,17 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gr
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gad67ec774bd672ba17b02e2cfb523bfe3">ORTH.lexer</a> = lex.lex()</td></tr>
 <tr class="memdesc:gad67ec774bd672ba17b02e2cfb523bfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">FORTH coloring lexer. <br /></td></tr>
 <tr class="separator:gad67ec774bd672ba17b02e2cfb523bfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ed473309fe7104defebbb54dc187c74"><td class="memItemLeft" align="right" valign="top"><a id="ga4ed473309fe7104defebbb54dc187c74"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga4ed473309fe7104defebbb54dc187c74">ORTH.font</a> = wx.Font(14, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)</td></tr>
-<tr class="memdesc:ga4ed473309fe7104defebbb54dc187c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">get monospace font from system <br /></td></tr>
-<tr class="separator:ga4ed473309fe7104defebbb54dc187c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ff34664ccecf19f37826767c0980b77"><td class="memItemLeft" align="right" valign="top"><a id="ga4ff34664ccecf19f37826767c0980b77"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga4ff34664ccecf19f37826767c0980b77">ORTH.style_DEFAULT</a> = wx.stc.STC_STYLE_DEFAULT</td></tr>
-<tr class="memdesc:ga4ff34664ccecf19f37826767c0980b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">default style <br /></td></tr>
-<tr class="separator:ga4ff34664ccecf19f37826767c0980b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45861f4c079e2beb0d4d82a77ba46f4a"><td class="memItemLeft" align="right" valign="top"><a id="ga45861f4c079e2beb0d4d82a77ba46f4a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga45861f4c079e2beb0d4d82a77ba46f4a">ORTH.style_COMMENT</a> = 1</td></tr>
-<tr class="memdesc:ga45861f4c079e2beb0d4d82a77ba46f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">comment <br /></td></tr>
-<tr class="separator:ga45861f4c079e2beb0d4d82a77ba46f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga93fe778a3374d91de40859a4fd4cf7f0"><td class="memItemLeft" align="right" valign="top"><a id="ga93fe778a3374d91de40859a4fd4cf7f0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga93fe778a3374d91de40859a4fd4cf7f0">ORTH.style_NUMBER</a> = 2</td></tr>
-<tr class="memdesc:ga93fe778a3374d91de40859a4fd4cf7f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">number <br /></td></tr>
-<tr class="separator:ga93fe778a3374d91de40859a4fd4cf7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga329cec34c7b99245f24302ba926a4ce1"><td class="memItemLeft" align="right" valign="top"><a id="ga329cec34c7b99245f24302ba926a4ce1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga329cec34c7b99245f24302ba926a4ce1">ORTH.style_COMPILER</a> = 3</td></tr>
-<tr class="memdesc:ga329cec34c7b99245f24302ba926a4ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">colon definition <br /></td></tr>
-<tr class="separator:ga329cec34c7b99245f24302ba926a4ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="memItemLeft" align="right" valign="top"><a id="ga9d95f5a77f0bb38dd23abdf157f4c5ad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga9d95f5a77f0bb38dd23abdf157f4c5ad">ORTH.wnMain</a> = <a class="el" href="classORTH_1_1Editor.html">Editor</a>(filename = sys.argv[0]+'.src') ; wnMain.Show()</td></tr>
+<tr class="memdesc:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">main window <br /></td></tr>
+<tr class="separator:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>syntax colorizer using PLY lex/yacc library </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 21 2018 16:53:14 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 22 2018 15:52:13 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
