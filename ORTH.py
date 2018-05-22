@@ -78,7 +78,7 @@ def onKey(event):
 import ply.lex as lex
 
 ## colorizer token types
-tokens = ['ANY','COMMENT','NUMBER','COMPILER']
+tokens = ['ANY','COMMENT','NUMBER','COMPILER','OPERATOR']
 
 ## ignore spaces
 t_ignore = ' \t\r\n'
@@ -86,11 +86,13 @@ t_ignore = ' \t\r\n'
 ## comment
 t_COMMENT = r'[\#\\].*\n|\(.*\)'
 ## number
-t_NUMBER = r'[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'
+t_NUMBER = r'0x[0-9A-Fa-f]+|[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'
 ## word name or undefined
 t_ANY = r'[a-zA-Z0-9_]+'
 ## compiler words
 t_COMPILER = r'[\:\;]{1}'
+## operators
+t_OPERATOR = r'[\<\>\?\=]'
 
 ## lexer error callback
 def t_error(t): raise SyntaxError(t)
@@ -98,25 +100,6 @@ def t_error(t): raise SyntaxError(t)
 ## FORTH coloring lexer
 lexer = lex.lex()
 
-            
-
-# ## stack dump window
-# wnstack = wx.Frame(main,title=sys.argv[0]+'.stack')
-# ## toggle stack window callback
-# def onStack(event):
-#     if wnstack.IsShown():   wnstack.Hide()
-#     else:                   wnstack.Show()
-# ## bind to debug/stack menu
-# main.Bind(wx.EVT_MENU,onStack,stack)
-# 
-# ## vocabulary dump window
-# wnwords = wx.Frame(main,title=sys.argv[0]+'.words')
-# ## toggle vocabulary window callback
-# def onWords(event):
-#     if wnwords.IsShown():   wnwords.Hide()
-#     else:                   wnwords.Show()
-# ## bind to debug/words menu
-# main.Bind(wx.EVT_MENU,onWords,words)
 
 ## GUI Editor class
 ## @ingroup editor
@@ -141,16 +124,21 @@ class Editor(wx.Frame):
         self.Bind(wx.EVT_MENU,self.onSave,self.save)
         ## file/quit
         self.quit = self.file.Append(wx.ID_EXIT,'&Quit')
-        self.Bind(wx.EVT_MENU,lambda e:self.Close(),self.quit)
+        self.Bind(wx.EVT_MENU,self.onQuit,self.quit)
         
         ## debug submenu
         self.debug = wx.Menu() ; self.menubar.Append(self.debug,'&Debug')
+        ## debug/update
+        self.update = self.debug.Append(wx.ID_REFRESH,'&Update\tF12')
+        self.Bind(wx.EVT_MENU,self.onUpdate,self.update)
         ## debug/stack
         ## @ingroup debug
         self.stack = self.debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
+        self.Bind(wx.EVT_MENU,self.onStack,self.stack)
         ## debug/words
         ## @ingroup debug
         self.words = self.debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
+        self.Bind(wx.EVT_MENU,self.onWords,self.words)
         
         ## help submenu
         self.help = wx.Menu() ; self.menubar.Append(self.help,'&Help')
@@ -191,8 +179,8 @@ class Editor(wx.Frame):
     ## (re)load file event callback
     ## @ingroup editor
     def onLoad(self,event):
-        F = open(self.filename)
-        self.editor.SetValue(F.read()) ; F.close()
+        try: F = open(self.filename) ; self.editor.SetValue(F.read()) ; F.close()
+        except IOError: pass
     
     ## init colorizer styles & lexer
     ## @ingroup colorizer
@@ -217,6 +205,9 @@ class Editor(wx.Frame):
         ## colon definition
         self.style_COMPILER = 3
         self.editor.StyleSetSpec(self.style_COMPILER,'fore:#FF0000,bold')
+        ## operator
+        self.style_OPERATOR = 4
+        self.editor.StyleSetSpec(self.style_OPERATOR,'fore:#008888,bold')
         # bind colorizer event
         self.editor.Bind(wx.stc.EVT_STC_STYLENEEDED,self.onStyle)
 
@@ -237,11 +228,43 @@ class Editor(wx.Frame):
                 self.editor.SetStyling(len(token.value),self.style_NUMBER)
             elif token.type == 'COMPILER':
                 self.editor.SetStyling(len(token.value),self.style_COMPILER)
+            elif token.type == 'OPERATOR':
+                self.editor.SetStyling(len(token.value),self.style_OPERATOR)
             else:
                 self.editor.SetStyling(0,0)
+                
+    ## toggle stack window callback
+    def onStack(self,event):
+        if wnStack.IsShown():   wnStack.Hide()
+        else:                   wnStack.Show() ; self.onUpdate(event)
+    ## toggle vocabulary window callback
+    def onWords(self,event):
+        if wnWords.IsShown():   wnWords.Hide()
+        else:                   wnWords.Show() ; self.onUpdate(event)
+
+    ## process quit event
+    def onQuit(self,event):
+        wnStack.Close() ; wnWords.Close() ; wnMain.Close()
+        
+    ## run update process (debug windows only)
+    def onUpdate(self,event):
+        if (wnStack.editor.IsShown()):
+            S = ''
+            for i in D: S += '%s\n'%i
+            wnStack.editor.SetValue(S)
+        if (wnWords.editor.IsShown()):
+            S = ''
+            for j in W: S += '%s = %s\n'%(j,W[j])
+            wnWords.editor.SetValue(S)
 
 ## main window
 wnMain = Editor(filename = sys.argv[0]+'.src') ; wnMain.Show()
+
+## stack dump window
+wnStack = Editor(wnMain,filename = sys.argv[0]+'.stack')
+
+## vocabulary dump window
+wnWords = Editor(wnMain,filename = sys.argv[0]+'.words')
 
 ## @}
 
