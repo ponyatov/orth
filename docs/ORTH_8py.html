@@ -102,7 +102,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group
 <tr class="memdesc:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">key press callback <br /></td></tr>
 <tr class="separator:ga5cc7fdd678e5a3c1642a7455043aea8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga920aa252a68d2c3b65d7d3e07e015163"><td class="memItemLeft" align="right" valign="top">
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga920aa252a68d2c3b65d7d3e07e015163">ORTH.t_error</a> (t)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#ga920aa252a68d2c3b65d7d3e07e015163">ORTH.t_error</a> (t)</td></tr>
 <tr class="memdesc:ga920aa252a68d2c3b65d7d3e07e015163"><td class="mdescLeft">&#160;</td><td class="mdescRight">lexer error callback <br /></td></tr>
 <tr class="separator:ga920aa252a68d2c3b65d7d3e07e015163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -121,37 +121,49 @@ list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="grou
 <tr class="memdesc:gab3f3d44479b677d84cc9dfcfb9554b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">wxPython application <br /></td></tr>
 <tr class="separator:gab3f3d44479b677d84cc9dfcfb9554b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae522cbbe3e3314248bec4d7400c3dcf5"><td class="memItemLeft" align="right" valign="top">
-list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gae522cbbe3e3314248bec4d7400c3dcf5">ORTH.tokens</a> = ['ANY','COMMENT','NUMBER','COMPILER']</td></tr>
+list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#gae522cbbe3e3314248bec4d7400c3dcf5">ORTH.tokens</a> = ['ANY','COMMENT','NUMBER','COMPILER','OPERATOR']</td></tr>
 <tr class="memdesc:gae522cbbe3e3314248bec4d7400c3dcf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">colorizer token types <br /></td></tr>
 <tr class="separator:gae522cbbe3e3314248bec4d7400c3dcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e40f91a83ea1c4bc848375122cfde85"><td class="memItemLeft" align="right" valign="top">
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga6e40f91a83ea1c4bc848375122cfde85">ORTH.t_ignore</a> = ' \t\r\n'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#ga6e40f91a83ea1c4bc848375122cfde85">ORTH.t_ignore</a> = ' \t\r\n'</td></tr>
 <tr class="memdesc:ga6e40f91a83ea1c4bc848375122cfde85"><td class="mdescLeft">&#160;</td><td class="mdescRight">ignore spaces <br /></td></tr>
 <tr class="separator:ga6e40f91a83ea1c4bc848375122cfde85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac9ef735c7c4b446a8d5919bbb434dd10"><td class="memItemLeft" align="right" valign="top">
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gac9ef735c7c4b446a8d5919bbb434dd10">ORTH.t_COMMENT</a> = r'[\#\\].*\n|\(.*\)'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#gac9ef735c7c4b446a8d5919bbb434dd10">ORTH.t_COMMENT</a> = r'[\#\\].*\n|\(.*\)'</td></tr>
 <tr class="memdesc:gac9ef735c7c4b446a8d5919bbb434dd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">comment <br /></td></tr>
 <tr class="separator:gac9ef735c7c4b446a8d5919bbb434dd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5235d0d2818a34eacf8a766800525835"><td class="memItemLeft" align="right" valign="top">
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga5235d0d2818a34eacf8a766800525835">ORTH.t_NUMBER</a> = r'[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#ga5235d0d2818a34eacf8a766800525835">ORTH.t_NUMBER</a> = r'0x[0-9A-Fa-f]+|[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'</td></tr>
 <tr class="memdesc:ga5235d0d2818a34eacf8a766800525835"><td class="mdescLeft">&#160;</td><td class="mdescRight">number <br /></td></tr>
 <tr class="separator:ga5235d0d2818a34eacf8a766800525835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad31e222f264c9eee66b334b9bf7791d7"><td class="memItemLeft" align="right" valign="top">
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gad31e222f264c9eee66b334b9bf7791d7">ORTH.t_ANY</a> = r'[a-zA-Z0-9_]+'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#gad31e222f264c9eee66b334b9bf7791d7">ORTH.t_ANY</a> = r'[a-zA-Z0-9_]+'</td></tr>
 <tr class="memdesc:gad31e222f264c9eee66b334b9bf7791d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">word name or undefined <br /></td></tr>
 <tr class="separator:gad31e222f264c9eee66b334b9bf7791d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga06a50d252a69d02b89bc2bd1846aefda"><td class="memItemLeft" align="right" valign="top">
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga06a50d252a69d02b89bc2bd1846aefda">ORTH.t_COMPILER</a> = r'[\:\;]{1}'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#ga06a50d252a69d02b89bc2bd1846aefda">ORTH.t_COMPILER</a> = r'[\:\;]{1}'</td></tr>
 <tr class="memdesc:ga06a50d252a69d02b89bc2bd1846aefda"><td class="mdescLeft">&#160;</td><td class="mdescRight">compiler words <br /></td></tr>
 <tr class="separator:ga06a50d252a69d02b89bc2bd1846aefda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga719f2260758832775f32264459027602"><td class="memItemLeft" align="right" valign="top">
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#ga719f2260758832775f32264459027602">ORTH.t_OPERATOR</a> = r'[&lt;&gt;\?\=]'</td></tr>
+<tr class="memdesc:ga719f2260758832775f32264459027602"><td class="mdescLeft">&#160;</td><td class="mdescRight">operators <br /></td></tr>
+<tr class="separator:ga719f2260758832775f32264459027602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad67ec774bd672ba17b02e2cfb523bfe3"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#gad67ec774bd672ba17b02e2cfb523bfe3">ORTH.lexer</a> = lex.lex()</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__parser.html#gad67ec774bd672ba17b02e2cfb523bfe3">ORTH.lexer</a> = lex.lex()</td></tr>
 <tr class="memdesc:gad67ec774bd672ba17b02e2cfb523bfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">FORTH coloring lexer. <br /></td></tr>
 <tr class="separator:gad67ec774bd672ba17b02e2cfb523bfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__colorizer.html#ga9d95f5a77f0bb38dd23abdf157f4c5ad">ORTH.wnMain</a> = Editor(filename = sys.argv[0]+'.src') ; wnMain.Show()</td></tr>
 <tr class="memdesc:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">main window <br /></td></tr>
 <tr class="separator:ga9d95f5a77f0bb38dd23abdf157f4c5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ab73043b44117f7734b286569a7af67"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#ga2ab73043b44117f7734b286569a7af67">ORTH.wnStack</a> = Editor(wnMain,filename = sys.argv[0]+'.stack')</td></tr>
+<tr class="memdesc:ga2ab73043b44117f7734b286569a7af67"><td class="mdescLeft">&#160;</td><td class="mdescRight">stack dump window <br /></td></tr>
+<tr class="separator:ga2ab73043b44117f7734b286569a7af67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9de9223eaee60a7f84e32d9580e67db"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__debug.html#gac9de9223eaee60a7f84e32d9580e67db">ORTH.wnWords</a> = Editor(wnMain,filename = sys.argv[0]+'.words')</td></tr>
+<tr class="memdesc:gac9de9223eaee60a7f84e32d9580e67db"><td class="mdescLeft">&#160;</td><td class="mdescRight">vocabulary dump window <br /></td></tr>
+<tr class="separator:gac9de9223eaee60a7f84e32d9580e67db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacde047a14cc734e80877555b666f31f8"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__gui.html#gacde047a14cc734e80877555b666f31f8">ORTH.Q</a> = Queue.Queue()</td></tr>
 <tr class="memdesc:gacde047a14cc734e80877555b666f31f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUI/FORTH interfacing queue. <br /></td></tr>
@@ -173,7 +185,7 @@ Interpreter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 22 2018 15:52:13 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 22 2018 18:19:58 for ORTHodoxal (meta)programming language by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

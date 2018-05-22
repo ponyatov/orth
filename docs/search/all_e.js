@@ -7,5 +7,6 @@ var searchData=
   ['style_5fcomment',['style_COMMENT',['../classORTH_1_1Editor.html#a783d62ea1be85848256ba33c8b337a0e',1,'ORTH::Editor']]],
   ['style_5fcompiler',['style_COMPILER',['../classORTH_1_1Editor.html#a366069c0be65b949d8efd35b0fc7c2a9',1,'ORTH::Editor']]],
   ['style_5fdefault',['style_DEFAULT',['../classORTH_1_1Editor.html#a045c501ca8aeb793445fd0fa43edc574',1,'ORTH::Editor']]],
-  ['style_5fnumber',['style_NUMBER',['../classORTH_1_1Editor.html#a111d7efd2fa24c2411ab6e5cd9388aa6',1,'ORTH::Editor']]]
+  ['style_5fnumber',['style_NUMBER',['../classORTH_1_1Editor.html#a111d7efd2fa24c2411ab6e5cd9388aa6',1,'ORTH::Editor']]],
+  ['style_5foperator',['style_OPERATOR',['../classORTH_1_1Editor.html#a142f414858d401458a7ac09e429a08d5',1,'ORTH::Editor']]]
 ];

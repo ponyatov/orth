@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['w',['W',['../group__vm.html#ga1a49841e6eed48e133d2ef67644ffd10',1,'ORTH']]],
-  ['wnmain',['wnMain',['../group__colorizer.html#ga9d95f5a77f0bb38dd23abdf157f4c5ad',1,'ORTH']]],
-  ['words',['words',['../group__debug.html#ga369feab06d5fff900c314beefe2ed2a3',1,'ORTH::Editor']]]
+  ['update',['update',['../classORTH_1_1Editor.html#a18d7c5c2e7d04f0d4cc2c0aa10758054',1,'ORTH::Editor']]]
 ];

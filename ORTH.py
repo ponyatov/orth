@@ -75,6 +75,10 @@ def onKey(event):
 ## @brief syntax colorizer using PLY lex/yacc library
 ## @{
 
+## @defgroup parser FORTH parser
+## @brief Syntax parser using PLY library
+## @{
+
 import ply.lex as lex
 
 ## colorizer token types
@@ -100,6 +104,7 @@ def t_error(t): raise SyntaxError(t)
 ## FORTH coloring lexer
 lexer = lex.lex()
 
+## @}
 
 ## GUI Editor class
 ## @ingroup editor
@@ -131,11 +136,11 @@ class Editor(wx.Frame):
         ## debug/update
         self.update = self.debug.Append(wx.ID_REFRESH,'&Update\tF12')
         self.Bind(wx.EVT_MENU,self.onUpdate,self.update)
-        ## debug/stack
+        ## debug/stack menu item
         ## @ingroup debug
         self.stack = self.debug.Append(wx.ID_ANY,'&Stack\tF9',kind=wx.ITEM_CHECK)
         self.Bind(wx.EVT_MENU,self.onStack,self.stack)
-        ## debug/words
+        ## debug/words menu item
         ## @ingroup debug
         self.words = self.debug.Append(wx.ID_ANY,'&Words\tF8',kind=wx.ITEM_CHECK)
         self.Bind(wx.EVT_MENU,self.onWords,self.words)
@@ -261,9 +266,11 @@ class Editor(wx.Frame):
 wnMain = Editor(filename = sys.argv[0]+'.src') ; wnMain.Show()
 
 ## stack dump window
+## @ingroup debug
 wnStack = Editor(wnMain,filename = sys.argv[0]+'.stack')
 
 ## vocabulary dump window
+## @ingroup debug
 wnWords = Editor(wnMain,filename = sys.argv[0]+'.words')
 
 ## @}

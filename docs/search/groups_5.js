@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['virtual_20machine',['Virtual Machine',['../group__vm.html',1,'']]]
+  ['interpreter',['Interpreter',['../group__interpreter.html',1,'']]]
 ];
