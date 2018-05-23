@@ -1,4 +1,5 @@
 <map id="Editor" name="Editor">
-<area shape="rect" id="node1" href="$group__gui.html" title="GUI" alt="" coords="5,7,52,33"/>
-<area shape="rect" id="node3" href="$group__colorizer.html" title="syntax colorizer using PLY lex/yacc library " alt="" coords="283,7,357,33"/>
+<area shape="rect" id="node1" href="$group__keys.html" title="key bindings " alt="" coords="294,5,346,32"/>
+<area shape="rect" id="node2" href="$group__gui.html" title="GUI" alt="" coords="5,39,52,65"/>
+<area shape="rect" id="node4" href="$group__colorizer.html" title="syntax colorizer using PLY lex/yacc library " alt="" coords="283,64,357,91"/>
 </map>

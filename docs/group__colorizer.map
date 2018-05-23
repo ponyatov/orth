@@ -1,5 +1,4 @@
 <map id="Colorizer" name="Colorizer">
-<area shape="rect" id="node1" href="$group__gui.html" title="GUI" alt="" coords="5,31,52,57"/>
-<area shape="rect" id="node2" href="$group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="327,5,383,32"/>
-<area shape="rect" id="node4" href="$group__parser.html" title="Syntax parser using PLY library. " alt="" coords="301,56,409,83"/>
+<area shape="rect" id="node1" href="$group__editor.html" title="simple FORTH code editor with syntax highlight and vocabulary completion " alt="" coords="5,5,61,32"/>
+<area shape="rect" id="node3" href="$group__parser.html" title="Syntax parser using PLY library. " alt="" coords="311,5,419,32"/>
 </map>

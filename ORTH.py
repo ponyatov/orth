@@ -48,9 +48,6 @@ W['INTERPRET'] = INTERPRET
 ## @defgroup gui GUI
 ## @{
 
-## @defgroup editor Editor
-## simple FORTH code editor with syntax highlight and vocabulary completion
-
 import wx           # wxPython
 import wx.stc       # editor extension
 
@@ -60,16 +57,12 @@ import Queue        # and the queue to send commands from GUI
 ## wxPython application
 app = wx.App()
 
-## key press callback
-## @ingroup editor
-def onKey(event):
-    char = event.GetKeyCode()   # char code
-    ctrl = event.CmdDown()      # Ctrl key
-    shift = event.ShiftDown()   # Shift key
-    if char == 13 and ( ctrl or shift ): # Ctrl-Enter
-        Q.put(editor.GetSelectedText())  # push FORTH request
-    else: event.Skip()
-# editor.Bind(wx.EVT_CHAR,onKey)
+## @defgroup editor Editor
+## simple FORTH code editor with syntax highlight and vocabulary completion
+## @{
+
+## @defgroup keys Keys 
+## @brief key bindings
 
 ## @defgroup colorizer Colorizer
 ## @brief syntax colorizer using PLY lex/yacc library
@@ -151,6 +144,7 @@ class Editor(wx.Frame):
         self.about = self.help.Append(wx.ID_ABOUT,'&About\tF1')
         self.Bind(wx.EVT_MENU,self.onAbout,self.about)
     ## init editor
+    ## @ingroup keys
     def initEditor(self):
         ## script editor widget
         ## @ingroup editor
@@ -159,6 +153,8 @@ class Editor(wx.Frame):
         self.initColorizer()
         ## load default file name
         self.onLoad(None)
+        ## bind keys
+        self.editor.Bind(wx.EVT_CHAR,self.onKey)
     ## init statusbar
     def initStatusBar(self):
         ## statusbar
@@ -261,6 +257,18 @@ class Editor(wx.Frame):
             S = ''
             for j in W: S += '%s = %s\n'%(j,W[j])
             wnWords.editor.SetValue(S)
+            
+    ## key press callback
+    ## @ingroup keys
+    def onKey(self,event):
+        char = event.GetKeyCode()   # char code
+        ctrl = event.CmdDown()      # Ctrl key
+        shift = event.ShiftDown()   # Shift key
+        if char == 13 and ( ctrl or shift ):    # Ctrl-Enter
+            Q.put(self.editor.GetSelectedText())# push FORTH request
+        else: event.Skip()
+        
+## @}
 
 ## main window
 wnMain = Editor(filename = sys.argv[0]+'.src') ; wnMain.Show()

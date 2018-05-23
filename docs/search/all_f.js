@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['t_5fany',['t_ANY',['../group__parser.html#gad31e222f264c9eee66b334b9bf7791d7',1,'ORTH']]],
-  ['t_5fcomment',['t_COMMENT',['../group__parser.html#gac9ef735c7c4b446a8d5919bbb434dd10',1,'ORTH']]],
-  ['t_5fcompiler',['t_COMPILER',['../group__parser.html#ga06a50d252a69d02b89bc2bd1846aefda',1,'ORTH']]],
-  ['t_5ferror',['t_error',['../group__parser.html#ga920aa252a68d2c3b65d7d3e07e015163',1,'ORTH']]],
-  ['t_5fignore',['t_ignore',['../group__parser.html#ga6e40f91a83ea1c4bc848375122cfde85',1,'ORTH']]],
-  ['t_5fnumber',['t_NUMBER',['../group__parser.html#ga5235d0d2818a34eacf8a766800525835',1,'ORTH']]],
-  ['t_5foperator',['t_OPERATOR',['../group__parser.html#ga719f2260758832775f32264459027602',1,'ORTH']]],
-  ['tokens',['tokens',['../group__parser.html#gae522cbbe3e3314248bec4d7400c3dcf5',1,'ORTH']]]
+  ['save',['save',['../classORTH_1_1Editor.html#a144291cb5aa1ee806e31009418b9b754',1,'ORTH::Editor']]],
+  ['stack',['stack',['../group__debug.html#ga96eb3182f23c907015cca462f8e75e64',1,'ORTH::Editor']]],
+  ['statusbar',['statusbar',['../classORTH_1_1Editor.html#ac20665d03861b7af941c5bee652de8db',1,'ORTH::Editor']]],
+  ['stop',['stop',['../classORTH_1_1Interpreter.html#a192fc8facaf14e22cf067def5c916581',1,'ORTH.Interpreter.stop()'],['../group__gui.html#gac596898dc68acbf0313a5be6631fd754',1,'ORTH.stop()']]],
+  ['style_5fcomment',['style_COMMENT',['../classORTH_1_1Editor.html#a783d62ea1be85848256ba33c8b337a0e',1,'ORTH::Editor']]],
+  ['style_5fcompiler',['style_COMPILER',['../classORTH_1_1Editor.html#a366069c0be65b949d8efd35b0fc7c2a9',1,'ORTH::Editor']]],
+  ['style_5fdefault',['style_DEFAULT',['../classORTH_1_1Editor.html#a045c501ca8aeb793445fd0fa43edc574',1,'ORTH::Editor']]],
+  ['style_5fnumber',['style_NUMBER',['../classORTH_1_1Editor.html#a111d7efd2fa24c2411ab6e5cd9388aa6',1,'ORTH::Editor']]],
+  ['style_5foperator',['style_OPERATOR',['../classORTH_1_1Editor.html#a142f414858d401458a7ac09e429a08d5',1,'ORTH::Editor']]]
 ];
