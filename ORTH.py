@@ -7,6 +7,7 @@
 ## manual: https://github.com/ponyatov/orth/wiki/ORTH
 
 import os,sys
+from operator import isCallable
 
 ## @defgroup vm Virtual Machine
 ## @{
@@ -37,9 +38,35 @@ W['??'] = qq
 ## @defgroup interpreter Interpreter
 ## @{
 
-## interpreter
+## get next token from source code stream
+## @returns token or None on EOF
+def WORD():
+    D.append(lexer.token())
+    return D[-1]
+W['WORD'] = WORD
+
+## `FIND ( token -- callable|value )` lookup definition in vocabulary
+def FIND(): return D.append(W[D.pop().value])
+W['FIND'] = FIND
+
+## `EXECUTE ( callable -- ...)` execute callable object from top of stack
+def EXECUTE(): D.pop()()
+W['EXECUTE'] = EXECUTE
+
+## `INTERPRET ( -- )` interpreter loop
+## @param[in] PAD source code stream (string)
 def INTERPRET(PAD=''):
-    lexer.input(PAD)    # feed to lexer
+    lexer.input(PAD)            # feed source to lexer
+    while True:                 # infty interpreter loop
+        if not WORD():          # end of source
+            del D[-1] ; break   # drop None from stack and exit loop
+        if D[-1].type == 'COMMENT':
+            del D[-1]
+        elif D[-1].type in ['WORD','OPERATOR']:
+            FIND()              # lookup in vocabulary
+            if isCallable(D[-1]):
+                EXECUTE()       # execute found object
+    wnMain.onUpdate(None)       # update GUI (stack, vocabulary,..)
 W['INTERPRET'] = INTERPRET
 
 ## @}

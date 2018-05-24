@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['words',['WORDS',['../group__debug.html#ga3b091923a1ea1104d39695e17cfc51dd',1,'ORTH']]]
+  ['run',['run',['../classORTH_1_1Interpreter.html#a8b69e0234feae3e96e4df65630f63e51',1,'ORTH::Interpreter']]]
 ];
