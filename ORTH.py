@@ -38,7 +38,8 @@ W['??'] = qq
 ## @{
 
 ## interpreter
-def INTERPRET(SRC=''): print SRC
+def INTERPRET(PAD=''):
+    lexer.input(PAD)    # feed to lexer
 W['INTERPRET'] = INTERPRET
 
 ## @}
@@ -72,29 +73,70 @@ app = wx.App()
 ## @brief Syntax parser using PLY library
 ## @{
 
-import ply.lex as lex
+import ply.lex  as lex
+# import ply.yacc as yacc
 
 ## colorizer token types
-tokens = ['ANY','COMMENT','NUMBER','COMPILER','OPERATOR']
+tokens = ['COMMENT',
+          'NUMBER','INT','HEX','BIN',
+          'COMPILER','OPERATOR','WORD']
+
+## line counting
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
 
 ## ignore spaces
-t_ignore = ' \t\r\n'
+t_ignore = ' \t\r'
 
 ## comment
-t_COMMENT = r'[\#\\].*\n|\(.*\)'
-## number
-t_NUMBER = r'0x[0-9A-Fa-f]+|[\+\-]?[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?'
-## word name or undefined
-t_ANY = r'[a-zA-Z0-9_]+'
-## compiler words
-t_COMPILER = r'[\:\;]{1}'
-## operators
-t_OPERATOR = r'[\<\>\?\=]'
+def t_COMMENT(t):
+    r'[\#\\].*\n|\(.*\)'
+    t.length = len(t.value) ; return t
+
+## floating point number
+def t_NUMBER(t):
+    r'[\+\-]?[0-9]*\.[0-9]+([eE][\+\-]?[0-9]+)?'
+    t.length = len(t.value)
+    t.value = float(t.value) ; return t
+
+## hex number
+def t_HEX(t):
+    r'0x[0-9A-Fa-f]+'
+    t.length = len(t.value)
+    t.value = int(t.value[2:],0x10) ; return t
+
+## bin number
+def t_BIN(t):
+    r'0b[01]+'
+    t.length = len(t.value)
+    t.value = int(t.value[2:],0x02) ; return t
+
+## integer
+def t_INT(t):
+    r'[\+\-]?[0-9]+'
+    t.length = len(t.value)
+    t.value = int(t.value) ; return t
+    
+## compiler word
+def t_COMPILER(t):
+    r'[\:\;]{1}'
+    return t
+
+## operator
+def t_OPERATOR(t):
+    r'[\<\>\?\=]'
+    return t
+
+## any non-space chars group can be treat as free word name
+def t_WORD(t):
+    r'[a-zA-Z0-9_]+'
+    return t
 
 ## lexer error callback
 def t_error(t): raise SyntaxError(t)
 
-## FORTH coloring lexer
+## single system-wide FORTH lexer
 lexer = lex.lex()
 
 ## @}
@@ -225,8 +267,8 @@ class Editor(wx.Frame):
             self.editor.StartStyling(token.lexpos,0xFF)
             if token.type == 'COMMENT':
                 self.editor.SetStyling(len(token.value),self.style_COMMENT)
-            elif token.type == 'NUMBER':
-                self.editor.SetStyling(len(token.value),self.style_NUMBER)
+            elif token.type in ['NUMBER','INT','HEX','BIN']:
+                self.editor.SetStyling(token.length,self.style_NUMBER)
             elif token.type == 'COMPILER':
                 self.editor.SetStyling(len(token.value),self.style_COMPILER)
             elif token.type == 'OPERATOR':
